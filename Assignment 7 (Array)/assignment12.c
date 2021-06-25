@@ -26,5 +26,5 @@ int main()
     printf("\nThe number you entered are : ");
     for(i=0;i<n;i++)
     printf("%2d",a[i]);
-    
+    return 0;
 }
