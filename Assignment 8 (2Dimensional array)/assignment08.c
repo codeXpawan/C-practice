@@ -1,0 +1,1 @@
+//8.WAP to multiply two given matrices (3x3) and print the resultant matrix
