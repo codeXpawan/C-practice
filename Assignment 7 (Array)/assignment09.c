@@ -3,7 +3,7 @@
 
 int main()
 {
-    int a[10], i, fre[10], j, o;
+    int a[10], i, count1, count2, j, o;
     for (i=0;i<10;i++)
     {
         printf("Enter a number: ");
@@ -11,15 +11,21 @@ int main()
     }
     for(i=0,o=0;i<10,o<10;i++,o++)
     {
-        fre[o] = 0;
+        count1 = 0;
         for(j=0;j<10;j++)
         {
             if (a[i]==a[j])
-            fre[o] =fre[o] + 1;
+            count1 += 1;
         }
+        count2 = 0;
+        for(j=0;j<=i;j++)
+        {
+            if (a[i]==a[j])
+            count2 += 1;
+        }
+        if(count2<2)
+        printf("The frequency of element %d is %d\n",a[i],count1);
     }
-    for (i=0,o=0;i<10;i++,o++)
-    printf("The frequency of element %d is %d\n",a[i],fre[o]);
 
     return 0;
 }
