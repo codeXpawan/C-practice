@@ -1,10 +1,230 @@
-1.WAP to find the length of a given string without using a library function.
-2.WAP to copy the content of a given string to another without using a library function.
-3.WAP to reverse a given string without using a library function.
-4.WAP to concatenate two given strings without using a library function.
-5.WAP to compare two given strings without using a library function.
-6.WAP to convert all characters in a given string to uppercase.
-7.WAP to find the number of vowels, consonants, digits and white spaces in a given string.
-8.WAP to count the number of words in a given line of text.
-9.WAP to check whether a given word is palindrome or not.
-10.WAP to sort n number of strings in lexicographical order (dictionary order).
+//1.WAP to find the length of a given string without using a library function.
+#include<stdio.h>
+
+int main()
+{
+    char st[20];
+    int i;
+    printf("Enter the string : ");
+    gets(st);
+    for(i=0;st[i]!='\0';i++);
+
+    printf("The length of the string is %d.",i);
+
+    return 0;
+}
+
+//2.WAP to copy the content of a given string to another without using a library function
+#include<stdio.h>
+
+int main()
+{
+    char st[20], cp[20];
+    int i;
+    printf("Enter the string : ");
+    gets(st);
+    for(i=0;st[i]!='\0';i++)
+        cp[i] = st[i];
+    printf("The copied string is %s",cp);
+
+    return 0;
+}
+
+//3.WAP to reverse a given string without using a library function.
+#include<stdio.h>
+
+int main()
+{
+    char st[20], rev;
+    int i, j,k;
+    printf("Enter the string : ");
+    gets(st);
+    for(i=0;st[i]!='\0';i++);
+    for(j=i-1,k=0;k<=i/2;k++,j--)
+    {
+        rev = st[j];
+        st[j] = st[k];
+        st[k] = rev;
+    }
+    printf("The reverse of a string is %s",st);
+
+    return 0;
+}
+
+//4.WAP to concatenate two given strings without using a library function.
+#include<stdio.h>
+
+int main()
+{
+    char st1[20], st2[20], st3[40];
+    int i=0,j=0,k;
+    printf("Enter the first string : ");
+    gets(st1);
+    printf("Enter the second string : ");
+    gets(st2);
+    for(i=0;st1[i]!='\0';i++);
+    for(j=0;st2[j]!='\0';j++);
+    for(k=0;k<i;k++)
+    st3[k] = st1[k];
+    for(k;k<=i+j;k++)
+    st3[k] = st2[k-i];
+
+    
+    printf("The concatenate of the two given string is %s.",st3);
+
+    return 0;
+}
+
+//5.WAP to compare two given strings without using a library function.
+#include<stdio.h>
+
+int main()
+{
+  char st1[20], st2[20], st3[40];
+  int i=0,j=0,k;
+  printf("Enter the first string : ");
+  gets(st1);
+  printf("Enter the second string : ");
+  gets(st2);
+  for(i=0;st1[i]!='\0';i++);
+  for(j=0;st2[j]!='\0';j++);
+  for(k=0;k<i;k++)
+  {
+    if(i==j)
+    {
+    if(st1[k]=st2[k])
+    continue;
+    else
+    break;
+    }
+    else
+    break;
+  }  
+  if(k==i)
+  printf("The two string are equal.");
+  else
+  printf("The two string are not equal.");
+
+  return 0;
+}
+
+//6.WAP to convert all characters in a given string to uppercase.
+#include<stdio.h>
+
+int main()
+{
+    char st[20];
+    int i,j;
+    printf("Enter the string : ");
+    gets(st);
+    for(i=0;st[i]!='\0';i++)
+    {
+        j = st[i];
+        if(j<80)
+        continue;
+        else
+        {
+            j = j - 32;
+            st[i] = j;
+        }
+    }
+    printf("The sting in uppercase is %s",st);
+    return 0;
+}
+
+//7.WAP to find the number of vowels, consonants, digits and white spaces in a given string.
+#include<stdio.h>
+
+int main()
+{
+    char st[20];
+    int vow=0, cons=0, dig=0, spa=0, i;
+    printf("Enter a string : ");
+    gets(st);
+    for(i=0;st[i]!='\0';i++){
+        if(st[i]=='a'||st[i]=='e'||st[i]=='i'||st[i]=='o'||st[i]=='u')
+        vow++;
+        else if(st[i]>47&&st[i]<=57)
+        dig++;
+        else if(st[i]==' ')
+        spa++;
+        else 
+        cons++;
+    }
+    printf("The number of vowel is %d.\n",vow);
+    printf("The number of consonants is %d.\n",cons);
+    printf("The number of digits is %d.\n",dig);
+    printf("The number of spaces is %d.\n",spa);
+
+    return 0;
+}
+
+//8.WAP to count the number of words in a given line of text.
+#include<stdio.h>
+#include<string.h>
+
+int main(){
+    char st[20];
+    int i, len;
+    printf("Enter the sentence : ");
+    gets(st);
+    len = strlen(st);
+    for(i=0;st[i]!='\0';i++){
+        if(st[i]==' '||st[i]=='.')
+        len--;
+    }
+    printf("\nthe number of words in a given line of sentence is %d",len);
+}
+
+//9.WAP to check whether a given word is palindrome or not.
+#include<stdio.h>
+#include<string.h>
+
+int main(){
+    char st[20];
+    int i, len, len1;
+    printf("Enter the sentence : ");
+    gets(st);
+    len = strlen(st);
+    len1 = len-1;
+    for(i=0,len1;i<(len/2);i++,len1--){
+        if(st[i]==st[len1])
+        continue;
+        else
+        break;
+    }
+    if((len/2)==i)
+    printf("\nThe given words is a palindrome.\n");
+    else
+    printf("Do you even know What's Palindrome word is?");
+
+    return 0;
+}
+
+
+//10.WAP to sort n number of strings in lexicographical order (dictionary order).
+#include<stdio.h>
+#include<string.h>
+
+int main(){
+    char st[10][20],lex[20];
+    int i,val,j;
+    for(i=0;i<10;i++){
+        printf("Enter the word : ");
+        gets(st[i]);
+    }
+    printf("In lexicographical order :\n");
+    for(i=0;i<10;i++){
+        for(j=i;j<10;j++){
+            strcpy(lex,st[i]);
+            val = strcmp(st[j],st[i]);
+            if(val<0){
+                strcpy(st[i],st[j]);
+                strcpy(st[j],lex);
+            }
+        
+        }
+        printf("%s\n",st[i]);
+    }
+    return 0;
+}
