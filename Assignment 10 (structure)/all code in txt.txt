@@ -1,0 +1,287 @@
+/*1.Define a structure named Person, Employee, Item, Account, Author, Book, Point, Customer with its members:
+   a)       (id, name, address, contact)
+   d)       Item(code, name, price)
+   e)       Author(id, name, contact. Email, gender)
+   f)       Book(ISBN, title, author, category, pages)
+   g)       Account(id, name, acno, actype, balance)
+   h)       Point(x, y)
+   Write a program to read a record and display it.
+*/
+a)
+#include<stdio.h>
+
+struct Person{
+    char pername[20], peraddress[20], percontact[15];
+    int perage;
+};
+int main(){
+    struct Person person;
+    printf("Enter the person's name : ");
+    scanf("%s",&person.pername);
+    printf("Enter the person's age : ");
+    scanf("%d",&person.perage);
+    printf("Enter the person's address : ");
+    scanf("%s",&person.peraddress);
+    printf("Enter the person's contact number : ");
+    scanf("%s",&person.percontact);
+    printf("Person detail\n");
+    printf("\nName\t\tAge\t\tAddress\t\t\tContact number\n");
+    printf("%s\t\t%d\t\t%s\t\t%s\n",person.pername,person.perage,person.peraddress,person.percontact);
+    return 0;
+}
+
+b)
+#include<stdio.h>
+
+struct Employee{
+    char empid[20], empname[20], empaddress[20], empcontact[15], empdob[15], empdesignation[15];
+    float empsalary;
+};
+int main(){
+    struct Employee employee;
+    printf("Enter the employee's id : ");
+    scanf("%s",&employee.empid);
+    printf("Enter the employee's name : ");
+    scanf("%s",&employee.empname);
+    printf("Enter the employee's address : ");
+    scanf("%s",&employee.empaddress);
+    printf("Enter the employee's contact number : ");
+    scanf("%s",&employee.empcontact);
+    printf("Enter the employee's dob (20xx-xx-xx) : ");
+    scanf("%s",&employee.empdob);
+    printf("Enter the employee's designation (post) : ");
+    scanf("%s",&employee.empdesignation);
+    printf("Enter the employee's salary : ");
+    scanf("%f",&employee.empsalary);
+    printf("Employee detail\n");
+    printf("ID\t\tName\t\tAddress\t\tContact\t\tDOB\t\tDesignation\t\tSalary\n");
+    printf("%s\t%s\t\t%s\t%s\t%s\t\t%s\t\t%f\n",employee.empid,employee.empname,employee.empaddress,employee.empcontact,employee.empdob,employee.empdesignation,employee.empsalary);
+    return 0;
+}
+
+c)
+#include<stdio.h>
+
+struct Customer{
+    char cusid[20], cusname[20], cusaddress[20], cuscontact[15];
+};
+int main(){
+    struct Customer customer;
+    printf("Enter the customer's id : ");
+    scanf("%s",&customer.cusid);
+    printf("Enter the customer's name : ");
+    scanf("%s",&customer.cusname);
+    printf("Enter the customer's address : ");
+    scanf("%s",&customer.cusaddress);
+    printf("Enter the customer's contact number : ");
+    scanf("%s",&customer.cuscontact);    
+    printf("\nID\t\t\tName\t\tAddress\t\t\tContact number\n");
+    printf("%s\t\t    %s\t\t%s\t\t%s\n",customer.cusid,customer.cusname,customer.cusaddress,customer.cuscontact);
+    return 0;
+}
+
+d)
+#include<stdio.h>
+
+struct Item{
+    char itcode[20],itname[20];
+    float itprice;
+};
+int main(){
+    struct Item item;
+    printf("Enter the item's code : ");
+    scanf("%s",&item.itcode);
+    printf("Enter the item's name : ");
+    scanf("%s",&item.itname);
+    printf("Enter the item's price : ");
+    scanf("%f",&item.itprice);
+    printf("\nCode\t\tName\t\tPrice\n");
+    printf("%s\t\t%s\t\t%.2f",item.itcode,item.itname,item.itprice);
+    return 0;
+}
+
+e)
+#include<stdio.h>
+
+struct Author{
+    char autid[20], autname[20], autcontact[15], autemail[10], autgender[10];
+};
+int main(){
+    struct Author author;
+    printf("Enter the author's id : ");
+    scanf("%s",&author.autid);
+    printf("Enter the author's name : ");
+    scanf("%s",&author.autname);
+    printf("Enter the author's contact : ");
+    scanf("%s",&author.autcontact);
+    printf("Enter the author's email : ");
+    scanf("%s",&author.autemail);
+    printf("Enter the author's gender : ");
+    scanf("%s",&author.autgender);
+    printf("\nID\t\t\tName\t\tContact number\t\tEmail\t\tGender\n");
+    printf("%s\t\t    %s\t\t%s\t\t  %s\t%s\n",author.autid,author.autname,author.autcontact,author.autemail,author.autgender);
+    return 0;
+}
+
+
+f)
+#include<stdio.h>
+
+struct Book{
+    char bookisbn[20], booktitle[15], bookauthor[20], bookcat[10];
+    int bookpages;
+};
+int main(){
+    struct Book book;
+    printf("Enter the book's ISBN : ");
+    scanf("%s",&book.bookisbn);
+    printf("Enter the book's title : ");
+    scanf("%s",&book.booktitle);
+    printf("Enter the book's author : ");
+    scanf("%s",&book.bookauthor);
+    printf("Enter the book's category : ");
+    scanf("%s",&book.bookcat);
+    printf("Enter the book pages : ");
+    scanf("%d",&book.bookpages);
+    printf("\nISBN\t\t\tTitle\t\tAuthor\t\tCategory\t\tPages\n");
+    printf("%s\t\t    %s\t\t%s\t\t%s\t\t%d\n",book.bookisbn,book.booktitle,book.bookauthor,book.bookcat,book.bookpages);
+    return 0;
+}
+
+
+g)
+#include<stdio.h>
+
+struct Account{
+    char acid[20], acname[20], acno[30], actype[20];
+    float acbal;
+};
+int main(){
+    struct Account account;
+    printf("Enter the Account id : ");
+    scanf("%s",&account.acid);
+    printf("Enter the account name : ");
+    scanf("%s",&account.acname);
+    printf("Enter the account number : ");
+    scanf("%s",&account.acno);
+    printf("Enter the account type : ");
+    scanf("%s",&account.actype);
+    printf("Enter the account balance : ");
+    scanf("%f",&account.acbal);
+    printf("\nID\t\t\tName\t\tNumber\t\tType\t\tbalance\n");
+    printf("%s\t\t    %s\t\t%s\t\t%s\t\t%.3f\n",account.acid,account.acname,account.acno,account.actype,account.acbal);
+    return 0;
+}
+
+h)
+#include<stdio.h>
+
+struct Points{
+    int poix, poiy;
+};
+int main(){
+    struct Points point;
+    printf("Enter X and Y points : ");
+    scanf("%d  %d",&point.poix,&point.poiy);
+    printf("\nX\t\tY\n%d\t\t%d",point.poix,point.poiy);
+    return 0;
+}
+
+//2.Define a structure name Complex having data members real & img. Write a main program to add two given complex numbers.
+#include<stdio.h>
+
+struct Complex{
+    float real, img;
+}c1,c2;
+int main(){
+    printf("Enter the real and img part for c1: ");
+    scanf("%f %f",&c1.real,&c1.img);
+    printf("Enter the real and img part for c2: ");
+    scanf("%f %f",&c2.real,&c2.img);
+    printf("The sum of real and img part is %.3f+i%.3f",c1.real + c2.real,c1.img + c2.img);
+    return 0;
+}
+
+//3.Define a structure name Date having data members day, month & year. Write a main program toadd two given Date.
+#include<stdio.h>
+
+struct Date{
+    int year, month, days;
+}d1,d2;
+int main(){
+    struct Date d3;
+    printf("Enter the year, month and day for Date1: ");
+    scanf("%d %d %d",&d1.year,&d1.month,&d1.days);
+    printf("Enter the year, month and day for Date2: ");
+    scanf("%d %d %d",&d2.year,&d2.month,&d2.days);
+    d3.days = d1.days + d2.days;
+    d3.month = d1.month + d2.month;
+    d3.year = d1.year + d2.year;
+    if(d3.days>30)
+        d3.month++;
+    d3.days %= 30;
+    if(d3.month >12)
+        d3.year++;
+    d3.month %= 12;
+    printf("The sum of dates is %d year, %d month and %d days.",d3.year,d3.month,d3.days);
+    return 0;
+}
+
+//4.Define a structure name Time having data members hour, minute & second. Write a main program to add two given Time.
+#include<stdio.h>
+
+struct Time{
+    int hour, min, sec;
+}t1,t2;
+
+struct Time add(struct Time, struct Time);
+int main(){
+    printf("Enter the Hour, Minute and Second for Time1: ");
+    scanf("%d %d %d",&t1.hour,&t1.min,&t1.sec);
+    printf("Enter the Hour, Minute and Second for Time2: ");
+    scanf("%d %d %d",&t2.hour,&t2.min,&t2.sec);
+    struct Time t3 = add(t1,t2);
+    printf("The sum of Time is %d hour, %d minute and %d second.",t3.hour,t3.min,t3.sec);
+    return 0;
+}
+
+struct Time add(struct Time t1, struct Time t2){
+    struct Time t3;
+    t3.sec = t1.sec + t2.sec;
+    t3.min = t1.min + t2.min;
+    t3.hour = t1.hour + t2.hour;
+    if(t1.sec>60 || t2.sec>60 || t1.min>60 || t2.min>60){
+        printf("Input error...\n");
+        main();
+    }
+    if(t3.sec>60)
+        t3.min++;
+    if(t3.min>60)
+        t3.hour++;
+    return t3;
+}
+
+//5.Define a structure name Distance having data members feet & inch. Write a main program to add two given Distances.
+#include<stdio.h>
+
+struct Distance{
+    int feet, inch;
+}d1,d2;
+int main(){
+    struct Distance d3;
+    printf("Enter the distance in feet and inch for distance1 : ");
+    scanf("%d %d",&d1.feet,&d1.inch);
+    printf("Enter the distance in feet and inch for distance1 : ");
+    scanf("%d %d",&d2.feet,&d2.inch);
+    if(d1.inch>12 || d2.inch>12){
+        printf("Input format error....\n");
+        main();
+    }
+    d3.feet = d1.feet + d2.feet;
+    d3.inch = d1.inch + d2.inch;
+    if(d3.inch>12)
+        d3.feet++;
+    d3.inch %= 12;
+    printf("The sum of the distance is %d feet and %d inch.",d3.feet,d3.inch);
+    return 0;
+}
