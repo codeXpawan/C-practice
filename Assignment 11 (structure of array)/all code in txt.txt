@@ -1,0 +1,239 @@
+//1.Define a structure named Student having members name, rollno and marks in 5 subjects. 
+//  WAPto read record of 10 students. Calculate total marks and percentage of each student and print them.
+#include<stdio.h>
+#include<string.h>
+
+struct Student{
+    char name[20],roll[10];
+    float marks[5];
+};
+int main(){
+    struct Student s[10];
+    int i,n;
+    float sum[5];
+    printf("Enter the value you want to record (max 10): ");
+    scanf("%d",&n);
+    for(i=0;i<n;i++){
+        sum[i] = 0;
+        printf("Enter the student's name : ");
+        scanf(" %[^\n]s",&s[i].name);
+        printf("Enter the student's roll no. : ");
+        scanf("%d",&s[i].roll);
+        for(int j=0;j<5;j++){
+            printf("Enter the marks in subject %d : ",j);
+            scanf("%f",&s[i].marks[j]);
+            sum[i] += s[i].marks[j];
+        }
+    }
+    printf("Student name\t\tTotal marks\t\tPercentage\n");
+    for(i=0;i<n;i++){
+        printf("%s\t\t%.2f\t\t\t%.2f%%\n",s[i].name,sum[i],(sum[i]/500)*100);
+    }
+    return 0;
+}
+
+
+/*2.Define a structure name Employee having its member empid, name, address, and salary.
+   WAP to read record of 10 employees and
+
+   (a)Display record of all employees who live in 'DHARAN'.
+   (b)Display record of all employees who does not live in 'DHARAN'.
+   (c)Display record of all employees whose salary ranges between 15000 to 20000.
+   (d)Display record of all employees after increasing the salaries of all employees by 10%.
+   (e)Increase the salary by 10% of only those employees who lives in 'BIRATNAGAR' . 
+    Display record of all employees.
+*/
+#include<stdio.h>
+#include<string.h>
+
+struct Employee{
+    char id[20], name[20], address[20];
+    float salary;
+};
+void main(){
+    struct Employee emp[10];
+    int i,n;
+    printf("Enter the value you want to record (max 10): ");
+    scanf("%d",&n);
+    for(i=0;i<n;i++){
+        printf("Enter the employee's id : ");
+        scanf(" %s",&emp[i].id);
+        printf("Enter the employee's name : ");
+        scanf(" %s",&emp[i].name);
+        printf("Enter the employee's address : ");
+        scanf(" %s",&emp[i].address);
+        printf("Enter the employee's salary : ");
+        scanf(" %f",&emp[i].salary);
+    }
+    printf("Record of all employees who lives in dharan :\n");
+    printf("ID\t\tName\t\tAddress\t\tSalary\n");
+    for(i=0;i<n;i++){
+        if(strcmp(emp[i].address,"dharan")==0||strcmp(emp[i].address,"Dharan")==0||strcmp(emp[i].address,"DHARAN")==0){
+            printf("%s\t\t%s\t\t%s\t\t%.3f\n",emp[i].id,emp[i].name,emp[i].address,emp[i].salary);
+        }
+    }
+    printf("Record of all employees who doesn't live in dharan :\n");
+    printf("ID\t\tName\t\tAddress\t\tSalary\n");
+    for(i=0;i<n;i++){
+        if(strcmp(emp[i].address,"dharan") != 0 )
+		{
+            printf("%s\t\t%s\t\t%s\t\t%.3f\n",emp[i].id,emp[i].name,emp[i].address,emp[i].salary);
+        }
+    }
+    printf("Record of all employees whose salary range from 15000-20000 :\n");
+    printf("ID\t\tName\t\tAddress\t\tSalary\n");
+    for(i=0;i<n;i++){
+        if(emp[i].salary>=15000 && emp[i].salary<=20000){
+            printf("%s\t\t%s\t\t%s\t\t%.3f\n",emp[i].id,emp[i].name,emp[i].address,emp[i].salary);
+        }
+    }
+}
+
+//3.Define a structure:Name(fname, mname, lastname)Person(age, contact, address)
+//  WAP to nest the structure Name within structure Person and read the record of 10 persons and display it.
+#include<stdio.h>
+#include<string.h>
+
+struct Name{
+    char fname[10], mname[10], lname[10];
+};
+struct Person{
+    int age;
+    char contact[15], address[20];
+    struct Name name;
+}p[10];
+int main(){
+   int i,n;
+   printf("Enter the value you want to record (max 10): ");
+    scanf("%d",&n);
+   for(i=0;i<n;i++){
+       printf("Enter the person's first name : ");
+       scanf("%s",&p[i].name.fname);
+       printf("Enter the person's middle name : ");
+       scanf("%s",&p[i].name.mname);
+       printf("Enter the person's last name : ");
+       scanf("%s",&p[i].name.lname);
+       printf("Enter the person's age : ");
+       scanf("%d",&p[i].age);
+       printf("Enter the person's address : ");
+       scanf("%s",&p[i].address);
+       printf("Enter the person's contact number : ");
+       scanf("%s",&p[i].contact);
+   }
+    printf("Person's Details:");
+    for(i=0;i<20;i++) printf("-");
+    printf("\nFirst name\tMiddle name\tLast name\tAge\tAddress\t\tContact number\n");
+   for(i=0;i<n;i++){
+       printf("%s\t\t%s\t\t%s\t\t%d\t\t%s\t\t%s\n",p[i].name.fname,p[i].name.mname,p[i].name.lname,p[i].age,p[i].address,p[i].contact);
+   }
+   return 0;
+}
+
+
+/*4.Define a structure name Complex with its member real and img.
+   Write a user defined function named addComplex() to add two given Complex numbers.
+   The function should take two Complex type arguments and also return Complex type. WAP to implement the UDF in main program.
+*/
+#include<stdio.h>
+
+struct Complex{
+    float real, img;
+}c1,c2;
+struct Complex addComplex(struct Complex c1, struct Complex c2){
+	struct Complex c;
+	c.real = c1.real + c2.real;
+	c.img = c1.img + c2.img;
+	return c;
+}
+int main(){
+    printf("Enter the real and img part for c1: ");
+    scanf("%f %f",&c1.real,&c1.img);
+    printf("Enter the real and img part for c2: ");
+    scanf("%f %f",&c2.real,&c2.img);
+	struct Complex c = addComplex(c1,c2);
+    printf("The sum of real and img part is %.3f+i%.3f",c.real,c.img);
+    return 0;
+}
+
+
+/*5.Define a structure name Time with its member hr, min and sec.
+   Write a user defined function named timeDiff() to calculate the difference between two time periods.
+   The function should take two Time type arguments and also return Time type.
+   WAP to implement the UDF in main program.
+*/
+#include<stdio.h>
+#include<string.h>
+struct Time{
+    int hour, min, sec;
+}t1,t2;
+
+struct Time timeDiff(struct Time, struct Time);
+int main(){
+    printf("Enter the Hour, Minute and Second for Time1: ");
+    scanf("%d %d %d",&t1.hour,&t1.min,&t1.sec);
+    printf("Enter the Hour, Minute and Second for Time2: ");
+    scanf("%d %d %d",&t2.hour,&t2.min,&t2.sec);
+    struct Time t3 = timeDiff(t1,t2);
+    printf("The difference of Time is %d hour, %d minute and %d second.",t3.hour,t3.min,t3.sec);
+    return 0;
+}
+
+struct Time timeDiff(struct Time t1, struct Time t2){
+    struct Time t3;
+    t3.sec = t1.sec - t2.sec;
+    t3.min = t1.min - t2.min;
+    t3.hour = t1.hour - t2.hour;
+    if(t3.hour<0 || t1.sec>60||t2.sec>60||t1.min>60||t2.min>60){
+        printf("Input error...\n");
+        main();
+    }
+    if(t3.sec<0){
+        t3.min--;
+        t3.sec += 60;
+    }
+    if(t3.min<0){
+        t3.hour--;
+        t3.min += 60;
+    }
+    return t3;
+}
+
+
+/*6.Define a structure named Student having members name and rollno. WAP to read record of 10 students.
+   Sort the students record in ascending order according to their roll numbers.
+*/
+#include<stdio.h>
+#include<string.h>
+
+struct Student{
+   char name[20];
+   int roll;
+}s1[10],s2[10];
+int main(){
+   int i,j,n;
+   printf("Enter the value you want to record (max 10): ");
+    scanf("%d",&n);
+   for(i=0;i<n;i++){
+      printf("Enter the student's name : ");
+      scanf("%s",&s1[i].name);
+      printf("Enter the roll no. : ");
+      scanf("%d",&s1[i].roll);
+   }
+   for(i=0;i<n;i++){
+      for(j=i;j<n;j++){
+         if(s1[i].roll>s1[j].roll){
+            strcpy(s2[i].name,s1[i].name);
+            strcpy(s1[i].name,s1[j].name);
+            strcpy(s1[j].name,s2[i].name);
+            s2[i].roll = s1[i].roll;
+            s1[i].roll = s1[j].roll;
+            s1[j].roll = s2[i].roll;
+         }
+      }
+   }
+   printf("Students record in ascending order acc. to their roll numbers.\n");
+   printf("Name\t\tRoll No.\n");
+   for(i=0;i<n;i++)
+   printf("%s\t\t%d\n",s1[i].name,s1[i].roll);
+   return 0;
+}
