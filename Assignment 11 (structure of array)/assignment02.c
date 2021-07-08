@@ -15,9 +15,10 @@ struct Employee{
     char id[20], name[20], address[20];
     float salary;
 };
+ char * lower(char[20]);
 void main(){
     struct Employee emp[10];
-    int i,n;
+    int i,n,j;
     printf("Enter the value you want to record (max 10): ");
     scanf("%d",&n);
     for(i=0;i<n;i++){
@@ -32,15 +33,23 @@ void main(){
     }
     printf("Record of all employees who lives in dharan :\n");
     printf("ID\t\tName\t\tAddress\t\tSalary\n");
+    for(j=0;j<n;j++){
+        for(i=0;i<strlen(emp[i].address);i++){
+            if(emp[i].address[i]<90)
+            emp[i].address[i] +=32;
+        }
+    }
+    
     for(i=0;i<n;i++){
-        if(strcmp(emp[i].address,"dharan")==0||strcmp(emp[i].address,"Dharan")==0||strcmp(emp[i].address,"DHARAN")==0){
+        if(strcmp(lower(emp[i].address),"dharan")==0){
             printf("%s\t\t%s\t\t%s\t\t%.3f\n",emp[i].id,emp[i].name,emp[i].address,emp[i].salary);
         }
     }
     printf("Record of all employees who doesn't live in dharan :\n");
     printf("ID\t\tName\t\tAddress\t\tSalary\n");
+
     for(i=0;i<n;i++){
-        if(strcmp(emp[i].address,"dharan") != 0 )
+        if(strcmp(lower(emp[i].address),"dharan") != 0 )
 		{
             printf("%s\t\t%s\t\t%s\t\t%.3f\n",emp[i].id,emp[i].name,emp[i].address,emp[i].salary);
         }
@@ -52,4 +61,22 @@ void main(){
             printf("%s\t\t%s\t\t%s\t\t%.3f\n",emp[i].id,emp[i].name,emp[i].address,emp[i].salary);
         }
     }
+    printf("Record of all employees after increasing salary by 10%% :\n");
+    printf("ID\t\tName\t\tAddress\t\tSalary\n");
+    for(i=0;i<n;i++)
+            printf("%s\t\t%s\t\t%s\t\t%.3f\n",emp[i].id,emp[i].name,emp[i].address,emp[i].salary + (0.1*emp[i].salary));
+    printf("Record of all employees after increasing salary by 10%% who live in biratnagar :\n");
+    printf("ID\t\tName\t\tAddress\t\tSalary\n");
+    for(i=0;i<n;i++){
+        if(strcmp(lower(emp[i].address),"biratnagar")==0)
+        printf("%s\t\t%s\t\t%s\t\t%.3f\n",emp[i].id,emp[i].name,emp[i].address,emp[i].salary + (0.1*emp[i].salary));
+    }
+}
+char * lower(char s[]){
+    int i;
+    for(i=0;i<strlen(s);i++){
+        if(s[i]<96)
+        s[i] += 32;
+    }
+    return s;
 }
