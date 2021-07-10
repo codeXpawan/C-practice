@@ -16,6 +16,7 @@ int main()
         if (a[i]==num)
         {
             printf("It's found....");
+            break;
         }
         else if(i == 9)
         printf("It's not here...");
