@@ -11,7 +11,7 @@ struct employee{
   int salary;
 }e1[10],temp;
 int main(){
-  FILE *ptr = fopen("employee.txt","w");
+  FILE *ptr = fopen("employee.bin","bw");
   int n, i, j;
   char c;
   if(ptr == NULL)
@@ -35,7 +35,7 @@ int main(){
   }
   fclose(ptr);
    /* Reading file in binary read mode */
- ptr = fopen("employee.txt","r");
+ ptr = fopen("employee.bin","br");
  if(ptr == NULL)
  {
   printf("File error!");
